@@ -6,9 +6,10 @@ pipeline {
         timestamps()
     }
     stages {
-        stage("Just command")
+        stage("Just command") {
             steps {
                 echo "mkdir /home/rinmamarun/grofalti"
             }
+        }
     }
 }
