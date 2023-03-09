@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage("Just command") {
             steps {
-                sh 'mkdir /home/rinmamarun/grofalti'
+                sh 'sudo mkdir /home/rinmamarun/grofalti'
             }
         }
     }
