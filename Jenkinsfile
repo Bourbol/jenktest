@@ -1,4 +1,4 @@
-properties ([disableConcurrentBuilds])
+properties ([disableConcurrentBuilds()])
 
 pipeline {
     agent any
@@ -6,9 +6,10 @@ pipeline {
         timestamps()
     }
     stages {
-        stage("Just command")
+        stage("Just command") {
             steps {
-                echo "mkdir /home/rinmamarun/grofalti"
+                sh 'mkdir /home/rinmamarun/grofalti'
             }
+        }
     }
 }
