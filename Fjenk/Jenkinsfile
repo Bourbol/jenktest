@@ -7,17 +7,24 @@ pipeline {
     }
     triggers { pollSCM("* * * * *") }
     stages {
-        stage("Just command") {
+        stage("Dockerhub login") {
             steps {
-                sh "mkdir /home/rinmamarun/grofalti"
+                withCredentials([usernamePassword(credentialsId: "dockerhub_cred", usernameVariable: "USER", passwordVariable: "PASSWORD")]) {
+                sh "docker login -u $USER -p $PASSWORD"
+                }
             }
         }
         stage("Docker build") {
             steps {
                 echo "======= Build docker image ======="
                 dir("Docker/") {
-                sh "docker build ."
+                sh "docker build -t bourbol/tinytoss:3.14 ."
                 }
+            }
+        }
+        stage("Docker push") {
+            steps {
+            sh "docker push bourbol/tinytoss:3.14"
             }
         }
     }
