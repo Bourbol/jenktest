@@ -13,7 +13,7 @@ pipeline {
         }
         stage("Docker build") {
             steps {
-                dir(Docker/)
+                dir("Docker/")
                 sh "docker build ."
             }
         }
