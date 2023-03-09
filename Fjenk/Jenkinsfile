@@ -5,7 +5,7 @@ pipeline {
     options {
         timestamps()
     }
-    trigger { pollSCM("* * * * *") }
+    triggers { pollSCM("* * * * *") }
     stages {
         stage("Just command") {
             steps {
