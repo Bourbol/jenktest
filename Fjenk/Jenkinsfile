@@ -27,6 +27,7 @@ pipeline {
             steps {
                 echo "======= Docker push ======="
                 sh "docker push bourbol/jumanji:2.0"
+                echo "======= If you see this string, then project successfully builded"
             }
         }
     }
